@@ -14,6 +14,7 @@ import com.oracle.truffle.api.CompilerOptions;
 import com.oracle.truffle.api.ExecutionContext;
 import com.oracle.truffle.api.Truffle;
 import com.oracle.truffle.api.TruffleLanguage;
+import com.oracle.truffle.api.instrumentation.Instrumenter;
 import com.oracle.truffle.api.object.DynamicObject;
 import com.oracle.truffle.tools.CoverageTracker;
 import org.jruby.Ruby;
@@ -81,11 +82,11 @@ public class RubyContext extends ExecutionContext {
     private final LexicalScope rootLexicalScope;
     private final CoverageTracker coverageTracker;
     private final InstrumentationServerManager instrumentationServerManager;
-    private final AttachmentsManager attachmentsManager;
     private final CallGraph callGraph;
     private final PrintStream debugStandardOut;
 
     private org.jruby.ast.RootNode initialJRubyRootNode;
+    private final AttachmentsManager attachmentsManager;
 
     public RubyContext(Ruby jrubyRuntime, TruffleLanguage.Env env) {
         latestInstance = this;
@@ -159,7 +160,7 @@ public class RubyContext extends ExecutionContext {
             instrumentationServerManager = null;
         }
 
-        attachmentsManager = new AttachmentsManager(this);
+        attachmentsManager = new AttachmentsManager(this, env.lookup(Instrumenter.class));
     }
 
     public Object send(Object object, String methodName, DynamicObject block, Object... arguments) {
@@ -299,15 +300,15 @@ public class RubyContext extends ExecutionContext {
         return symbolTable;
     }
 
-    public CallGraph getCallGraph() {
-        return callGraph;
-    }
-
     public CodeLoader getCodeLoader() {
         return codeLoader;
     }
 
     public InteropManager getInteropManager() {
         return interopManager;
+    }
+
+    public CallGraph getCallGraph() {
+        return callGraph;
     }
 }

@@ -123,5 +123,4 @@ public class RubyLanguage extends TruffleLanguage<RubyContext> {
     public RubyContext unprotectedFindContext(Node node) {
         return super.findContext(node);
     }
-
 }

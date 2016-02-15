@@ -17,7 +17,7 @@ project 'JRuby Truffle' do
   repository( :url => 'http://lafo.ssw.uni-linz.ac.at/nexus/content/repositories/snapshots/',
               :id => 'truffle' )
 
-  truffle_version = '385095c3a988e6b16fbcdeb8dc8d55150cfbbefd-SNAPSHOT'
+  truffle_version = '4592e4936b3c19a9e578477baab474387b0947d2'
   jar 'com.oracle.truffle:truffle-api:' + truffle_version
   jar 'com.oracle.truffle:truffle-debug:' + truffle_version
   jar 'com.oracle.truffle:truffle-dsl-processor:' + truffle_version, :scope => 'provided'
@@ -47,6 +47,7 @@ project 'JRuby Truffle' do
                    :id => 'default-compile',
                    :phase => 'compile',
                    'annotationProcessors' => [ 'org.jruby.truffle.om.dsl.processor.OMProcessor',
+                                               'com.oracle.truffle.dsl.processor.InstrumentableProcessor',
                                                'com.oracle.truffle.dsl.processor.TruffleProcessor',
                                                'com.oracle.truffle.dsl.processor.verify.VerifyTruffleProcessor',
                                                'com.oracle.truffle.dsl.processor.LanguageRegistrationProcessor' ],

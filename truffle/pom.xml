@@ -41,23 +41,23 @@ DO NOT MODIFIY - GENERATED CODE
     <dependency>
       <groupId>com.oracle.truffle</groupId>
       <artifactId>truffle-api</artifactId>
-      <version>385095c3a988e6b16fbcdeb8dc8d55150cfbbefd-SNAPSHOT</version>
+      <version>4592e4936b3c19a9e578477baab474387b0947d2</version>
     </dependency>
     <dependency>
       <groupId>com.oracle.truffle</groupId>
       <artifactId>truffle-debug</artifactId>
-      <version>385095c3a988e6b16fbcdeb8dc8d55150cfbbefd-SNAPSHOT</version>
+      <version>4592e4936b3c19a9e578477baab474387b0947d2</version>
     </dependency>
     <dependency>
       <groupId>com.oracle.truffle</groupId>
       <artifactId>truffle-dsl-processor</artifactId>
-      <version>385095c3a988e6b16fbcdeb8dc8d55150cfbbefd-SNAPSHOT</version>
+      <version>4592e4936b3c19a9e578477baab474387b0947d2</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.oracle.truffle</groupId>
       <artifactId>truffle-tck</artifactId>
-      <version>385095c3a988e6b16fbcdeb8dc8d55150cfbbefd-SNAPSHOT</version>
+      <version>4592e4936b3c19a9e578477baab474387b0947d2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -124,6 +124,7 @@ DO NOT MODIFIY - GENERATED CODE
             <configuration>
               <annotationProcessors>
                 <annotationProcessor>org.jruby.truffle.om.dsl.processor.OMProcessor</annotationProcessor>
+                <annotationProcessor>com.oracle.truffle.dsl.processor.InstrumentableProcessor</annotationProcessor>
                 <annotationProcessor>com.oracle.truffle.dsl.processor.TruffleProcessor</annotationProcessor>
                 <annotationProcessor>com.oracle.truffle.dsl.processor.verify.VerifyTruffleProcessor</annotationProcessor>
                 <annotationProcessor>com.oracle.truffle.dsl.processor.LanguageRegistrationProcessor</annotationProcessor>
